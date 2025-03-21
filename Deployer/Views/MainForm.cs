@@ -30,7 +30,6 @@ public partial class MainForm : Form
         OpenChildForm<SetupForm>();
     }
 
-
     private void processToolStripMenuItem_Click(object sender, EventArgs e)
     {
         OpenChildForm<ProcessForm>();
