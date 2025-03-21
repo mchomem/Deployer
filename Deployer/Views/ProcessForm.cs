@@ -1,0 +1,101 @@
+﻿namespace Deployer.Views;
+
+public partial class ProcessForm : MdiChieldFormBase
+{
+    private Setup deployerSetup = null!;
+
+    private readonly IJsonRepositoryBase<Setup> _jsonRepository;
+
+    public ProcessForm(IJsonRepositoryBase<Setup> jsonRepository)
+    {
+        _jsonRepository = jsonRepository;
+        InitializeComponent();
+        this.labelStatusValue.Text = string.Empty;
+    }
+
+    private async void ProcessForm_VisibleChanged(object sender, EventArgs e)
+        => await this.LoadJson();
+
+    private async void buttonStartCopy_Click(object sender, EventArgs e)
+        => await Task.Run(() => CopyFilesAndDirectories());
+
+    private async Task LoadJson()
+    {
+        deployerSetup = await _jsonRepository.Read();
+        this.labelOriginPathValue.Text = deployerSetup.OriginPath;
+        this.labelDestinationPathValue.Text = deployerSetup.DestinationPath;
+    }
+
+    private async Task CopyFilesAndDirectories()
+    {
+        if (!Directory.Exists(deployerSetup.OriginPath))
+        {
+            MessageBox.Show("The origin path don't exits.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
+        var files = Directory.GetFiles(deployerSetup.OriginPath, "*", SearchOption.AllDirectories);
+
+        Invoke(new Action(() =>
+        {
+            progressBarCopyFiles.Minimum = 0;
+            progressBarCopyFiles.Maximum = files.Length;
+            progressBarCopyFiles.Value = 0;
+
+            labelStatusValue.Text = "Copying file";
+            buttonStartCopy.Enabled = false;
+        }));
+
+        await Task.Run(() =>
+        {
+            for (int i = 0; i < files.Length; i++)
+            {
+                string sourceFile = files[i];
+                string fileName = Path.GetRelativePath(deployerSetup.OriginPath, sourceFile);
+
+                string extension = fileName.Split('.').Last();
+
+                // Ignora as extenções.
+                if(deployerSetup.IgnoreExtensions.Contains(extension))
+                    continue;
+
+                string exactfileName = Path.GetFileNameWithoutExtension(fileName);
+
+                // Ignora o nome exato do arquivo.
+                if (deployerSetup.IgnoreExactFileName.Contains(exactfileName))
+                    continue;
+
+                string destinationFile = Path.Combine(deployerSetup.DestinationPath, fileName);
+
+                // Cria o diretório do arquivo no destino, se necessário
+                Directory.CreateDirectory(Path.GetDirectoryName(destinationFile)!);
+
+                try
+                {
+                    // Copia o arquivo
+                    File.Copy(sourceFile, destinationFile, true);
+                }
+                catch (Exception e)
+                {
+                    Invoke(new Action(() => { 
+                        this.dataGridViewLog.Rows.Add(e.Message, fileName);
+                    }));
+                }
+
+                // Atualiza a barra de progresso na thread da UI
+                Invoke(new Action(() =>
+                {
+                    progressBarCopyFiles.Value = i + 1;
+                    labelStatusValue.Text = $"Copyed file: {fileName} - {i + 1}/{files.Length} ...";
+                }));
+            }
+        });
+
+        Invoke(new Action(() =>
+        {
+            labelStatus.Text = "Done";
+            buttonStartCopy.Enabled = true;
+            progressBarCopyFiles.Value = 0;
+        }));
+    }
+}
