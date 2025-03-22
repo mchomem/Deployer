@@ -3,6 +3,7 @@ namespace Deployer.Views;
 public partial class SetupForm : MdiChieldFormBase
 {
     private readonly IJsonRepositoryBase<Setup> _jsonRepository;
+    private Setup Setup { get; set; }
 
     public SetupForm(IJsonRepositoryBase<Setup> jsonRepository)
     {
@@ -10,20 +11,23 @@ public partial class SetupForm : MdiChieldFormBase
         InitializeComponent();
     }
 
-    private async void SetupForm_VisibleChanged(object sender, EventArgs e)
+    private async void SetupForm_Load(object sender, EventArgs e)
     {
         await LoadJson();
     }
 
     private async Task LoadJson()
     {
-        var setup = await _jsonRepository.Read();
+        Setup = await _jsonRepository.Read();
 
-        this.textBoxOriginPath.Text = setup.OriginPath;
-        this.textBoxDestinationPath.Text = setup.DestinationPath;
-        this.listBoxIgnoredExtensionsFile.Items.AddRange(setup.IgnoreExtensions.ToArray());
-        this.listBoxIgnoredExactFileName.Items.AddRange(setup.IgnoreExactFileName.ToArray());
-        this.textBoxContentJsonFile.Text = JsonSerializer.Serialize(setup, new JsonSerializerOptions { WriteIndented = true });
+        if (Setup is null)
+            return;
+
+        this.textBoxOriginPath.Text = Setup.OriginPath;
+        this.textBoxDestinationPath.Text = Setup.DestinationPath;
+        this.listBoxIgnoredExtensionsFile.Items.AddRange(Setup.IgnoreExtensions.ToArray());
+        this.listBoxIgnoredExactFileName.Items.AddRange(Setup.IgnoreExactFileName.ToArray());
+        this.textBoxContentJsonFile.Text = JsonSerializer.Serialize(Setup, new JsonSerializerOptions { WriteIndented = true });
     }
 
     private void buttonChooseOriginPath_Click(object sender, EventArgs e)
@@ -51,17 +55,24 @@ public partial class SetupForm : MdiChieldFormBase
     private async void buttonSave_Click(object sender, EventArgs e)
     {
         await this.Save();
+        await ClearForm();
         await this.LoadJson();
     }
 
     private void buttonClearValueOriginPath_Click(object sender, EventArgs e)
-        => this.textBoxOriginPath.Text = string.Empty;
+    {
+        this.textBoxOriginPath.Text = string.Empty;
+    }
 
     private void buttonClearValueDestinationPath_Click(object sender, EventArgs e)
-        => this.textBoxDestinationPath.Text = string.Empty;
+    {
+        this.textBoxDestinationPath.Text = string.Empty;
+    }
 
     private void buttonAddIgnoredExtensionsFile_Click(object sender, EventArgs e)
-        => this.AddIgnoredExtensionsFile();
+    {
+        this.AddIgnoredExtensionsFile();
+    }
 
     private void textBoxIgnoredExtensionsFile_KeyPress(object sender, KeyPressEventArgs e)
     {
@@ -138,6 +149,20 @@ public partial class SetupForm : MdiChieldFormBase
         this.textBoxIgnoredExactFileName.Text = string.Empty;
     }
 
+    private async Task ClearForm()
+    {
+        await Task.Run(() =>
+        {
+            this.Invoke((Action)(() =>
+            {
+                this.textBoxOriginPath.Text = string.Empty;
+                this.textBoxDestinationPath.Text = string.Empty;
+                this.listBoxIgnoredExtensionsFile.Items.Clear();
+                this.listBoxIgnoredExactFileName.Items.Clear();
+            }));
+        });
+    }
+
     private async Task Save()
     {
         var originPath = this.textBoxOriginPath.Text;
@@ -152,9 +177,19 @@ public partial class SetupForm : MdiChieldFormBase
         foreach (var item in listBoxIgnoredExactFileName.Items)
             ignoredExactFileName.Add(item.ToString()!);
 
-        var deployerSetup = new Setup(originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+        Setup setup;
 
-        await _jsonRepository.Write(deployerSetup);
+        if (Setup is null)
+        {
+            setup = new Setup(originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+        }
+        else
+        {
+            setup = Setup;
+            setup.Update(originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+        }
+
+        await _jsonRepository.Write(setup);
 
         MessageBox.Show(this, $"Setup saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
         this.tabControl.SelectedIndex = 1;

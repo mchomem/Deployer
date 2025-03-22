@@ -302,7 +302,7 @@
             Controls.Add(tabControl);
             Name = "SetupForm";
             Text = "Deployer - Setup";
-            VisibleChanged += SetupForm_VisibleChanged;
+            Load += SetupForm_Load;
             tabControl.ResumeLayout(false);
             tabPageMaintenance.ResumeLayout(false);
             tabPageMaintenance.PerformLayout();

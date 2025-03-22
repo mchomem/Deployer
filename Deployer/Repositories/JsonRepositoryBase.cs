@@ -5,7 +5,9 @@ public class JsonRepositoryBase<TEntity> : IJsonRepositoryBase<TEntity> where TE
     private readonly string filePath;
 
     public JsonRepositoryBase()
-        => this.filePath = $"{typeof(TEntity).Name}.json";
+    {
+        this.filePath = $"{typeof(TEntity).Name}.json";
+    }
 
     public async Task<TEntity> Read()
     {
@@ -13,7 +15,8 @@ public class JsonRepositoryBase<TEntity> : IJsonRepositoryBase<TEntity> where TE
 
         using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
         {
-            return await JsonSerializer.DeserializeAsync<TEntity>(stream);
+            var entity = await JsonSerializer.DeserializeAsync<TEntity>(stream);
+            return entity!;
         }
     }
 
@@ -23,5 +26,16 @@ public class JsonRepositoryBase<TEntity> : IJsonRepositoryBase<TEntity> where TE
         {
             await JsonSerializer.SerializeAsync(stream, entity, new JsonSerializerOptions { WriteIndented = true });
         }
+    }
+
+    public async Task<bool> CheckIfExists()
+    {
+        var exists = await Task.Run(() =>
+        {
+            var exists = File.Exists(filePath);
+            return exists;
+        });
+
+        return exists;
     }
 }
