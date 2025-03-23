@@ -18,16 +18,23 @@ public partial class SetupForm : MdiChieldFormBase
 
     private async Task LoadJson()
     {
-        Setup = await _jsonRepository.Read();
+        try
+        {
+            Setup = await _jsonRepository.Read();
+            
+            if (Setup is null)
+                return;
 
-        if (Setup is null)
-            return;
-
-        this.textBoxOriginPath.Text = Setup.OriginPath;
-        this.textBoxDestinationPath.Text = Setup.DestinationPath;
-        this.listBoxIgnoredExtensionsFile.Items.AddRange(Setup.IgnoreExtensions.ToArray());
-        this.listBoxIgnoredExactFileName.Items.AddRange(Setup.IgnoreExactFileName.ToArray());
-        this.textBoxContentJsonFile.Text = JsonSerializer.Serialize(Setup, new JsonSerializerOptions { WriteIndented = true });
+            this.textBoxOriginPath.Text = Setup.OriginPath;
+            this.textBoxDestinationPath.Text = Setup.DestinationPath;
+            this.listBoxIgnoredExtensionsFile.Items.AddRange(Setup.IgnoreExtensions.ToArray());
+            this.listBoxIgnoredExactFileName.Items.AddRange(Setup.IgnoreExactFileName.ToArray());
+            this.textBoxContentJsonFile.Text = JsonSerializer.Serialize(Setup, new JsonSerializerOptions { WriteIndented = true });
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show(this, e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     private void buttonChooseOriginPath_Click(object sender, EventArgs e)

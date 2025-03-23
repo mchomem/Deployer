@@ -38,5 +38,5 @@ public class Setup
     public List<string> IgnoreExtensions { get; private set; }
     public List<string> IgnoreExactFileName { get; private set; }
     public DateTime CreatedAt { get; private set; }
-    public DateTime? UpdatedAt { get; private set; }
+    public DateTime UpdatedAt { get; private set; }
 }
