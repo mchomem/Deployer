@@ -14,10 +14,22 @@ public partial class ProcessForm : MdiChieldFormBase
     }
 
     private async void ProcessForm_VisibleChanged(object sender, EventArgs e)
-        => await this.LoadJson();
+    {
+        await this.LoadJson();
+    }
 
     private async void buttonStartCopy_Click(object sender, EventArgs e)
-        => await Task.Run(() => CopyFilesAndDirectories());
+    {
+        Invoke(new Action(() => {
+            this.buttonStartCopy.Enabled = false;
+        }));
+
+        await Task.Run(() => CopyFilesAndDirectories());
+
+        Invoke(new Action(() => {
+            this.buttonStartCopy.Enabled = true;
+        }));
+    }
 
     private async Task LoadJson()
     {
