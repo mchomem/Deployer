@@ -111,7 +111,7 @@
             // 
             // buttonRemoveIgnoredExactFileName
             // 
-            buttonRemoveIgnoredExactFileName.Location = new Point(172, 129);
+            buttonRemoveIgnoredExactFileName.Location = new Point(193, 129);
             buttonRemoveIgnoredExactFileName.Name = "buttonRemoveIgnoredExactFileName";
             buttonRemoveIgnoredExactFileName.Size = new Size(94, 29);
             buttonRemoveIgnoredExactFileName.TabIndex = 3;
@@ -121,7 +121,7 @@
             // 
             // buttonAddIgnoredExactFileName
             // 
-            buttonAddIgnoredExactFileName.Location = new Point(172, 94);
+            buttonAddIgnoredExactFileName.Location = new Point(193, 94);
             buttonAddIgnoredExactFileName.Name = "buttonAddIgnoredExactFileName";
             buttonAddIgnoredExactFileName.Size = new Size(94, 29);
             buttonAddIgnoredExactFileName.TabIndex = 2;
@@ -132,7 +132,7 @@
             // listBoxIgnoredExactFileName
             // 
             listBoxIgnoredExactFileName.FormattingEnabled = true;
-            listBoxIgnoredExactFileName.Location = new Point(6, 94);
+            listBoxIgnoredExactFileName.Location = new Point(18, 94);
             listBoxIgnoredExactFileName.Name = "listBoxIgnoredExactFileName";
             listBoxIgnoredExactFileName.SelectionMode = SelectionMode.MultiSimple;
             listBoxIgnoredExactFileName.Size = new Size(150, 244);
@@ -140,7 +140,7 @@
             // 
             // textBoxIgnoredExactFileName
             // 
-            textBoxIgnoredExactFileName.Location = new Point(6, 39);
+            textBoxIgnoredExactFileName.Location = new Point(18, 39);
             textBoxIgnoredExactFileName.Name = "textBoxIgnoredExactFileName";
             textBoxIgnoredExactFileName.Size = new Size(269, 27);
             textBoxIgnoredExactFileName.TabIndex = 0;
