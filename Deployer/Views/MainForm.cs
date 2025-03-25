@@ -3,11 +3,13 @@
 public partial class MainForm : Form
 {
     private readonly IServiceProvider _serviceProvider;
+    private readonly IJsonRepositoryBase<Setup> _jsonRepository;
 
-    public MainForm(IServiceProvider serviceProvider)
+    public MainForm(IServiceProvider serviceProvider, IJsonRepositoryBase<Setup> jsonRepository)
     {
         InitializeComponent();
         _serviceProvider = serviceProvider;
+        _jsonRepository = jsonRepository;
     }
 
     private void OpenChildForm<T>() where T : Form
@@ -30,8 +32,23 @@ public partial class MainForm : Form
         OpenChildForm<SetupForm>();
     }
 
-    private void processToolStripMenuItem_Click(object sender, EventArgs e)
+    private async void processToolStripMenuItem_Click(object sender, EventArgs e)
     {
+        var exists = await _jsonRepository.CheckIfExists();
+
+        if (!exists)
+        {
+            MessageBox.Show(this, "The setup don't exists.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            var result = MessageBox.Show(this, "Do you want to access the Setup form to create the configuration?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(result == DialogResult.Yes)
+            {
+                OpenChildForm<SetupForm>();
+            }
+            return;
+        }
+
         OpenChildForm<ProcessForm>();
     }
 
