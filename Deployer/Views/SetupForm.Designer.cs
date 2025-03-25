@@ -52,11 +52,17 @@
             textBoxOriginPath = new TextBox();
             tabPageJsonContent = new TabPage();
             textBoxContentJsonFile = new TextBox();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabelCreatedAt = new ToolStripStatusLabel();
+            toolStripStatusLabelCreatedAtValue = new ToolStripStatusLabel();
+            toolStripStatusLabelUpdatedAt = new ToolStripStatusLabel();
+            toolStripStatusLabelUpdatedAtValue = new ToolStripStatusLabel();
             tabControl.SuspendLayout();
             tabPageMaintenance.SuspendLayout();
             groupBoxIgnoredExactFileName.SuspendLayout();
             groupBoxIgnoredExtensionsFile.SuspendLayout();
             tabPageJsonContent.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl
@@ -294,11 +300,46 @@
             textBoxContentJsonFile.Size = new Size(990, 535);
             textBoxContentJsonFile.TabIndex = 0;
             // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelCreatedAt, toolStripStatusLabelCreatedAtValue, toolStripStatusLabelUpdatedAt, toolStripStatusLabelUpdatedAtValue });
+            statusStrip1.Location = new Point(0, 604);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1036, 26);
+            statusStrip1.TabIndex = 11;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCreatedAt
+            // 
+            toolStripStatusLabelCreatedAt.Name = "toolStripStatusLabelCreatedAt";
+            toolStripStatusLabelCreatedAt.Size = new Size(81, 20);
+            toolStripStatusLabelCreatedAt.Text = "Created at:";
+            // 
+            // toolStripStatusLabelCreatedAtValue
+            // 
+            toolStripStatusLabelCreatedAtValue.Name = "toolStripStatusLabelCreatedAtValue";
+            toolStripStatusLabelCreatedAtValue.Size = new Size(143, 20);
+            toolStripStatusLabelCreatedAtValue.Text = "00/00/0000 00:00:00";
+            // 
+            // toolStripStatusLabelUpdatedAt
+            // 
+            toolStripStatusLabelUpdatedAt.Name = "toolStripStatusLabelUpdatedAt";
+            toolStripStatusLabelUpdatedAt.Size = new Size(87, 20);
+            toolStripStatusLabelUpdatedAt.Text = "Updated at:";
+            // 
+            // toolStripStatusLabelUpdatedAtValue
+            // 
+            toolStripStatusLabelUpdatedAtValue.Name = "toolStripStatusLabelUpdatedAtValue";
+            toolStripStatusLabelUpdatedAtValue.Size = new Size(143, 20);
+            toolStripStatusLabelUpdatedAtValue.Text = "00/00/0000 00:00:00";
+            // 
             // SetupForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1036, 604);
+            ClientSize = new Size(1036, 630);
+            Controls.Add(statusStrip1);
             Controls.Add(tabControl);
             Name = "SetupForm";
             Text = "Deployer - Setup";
@@ -312,7 +353,10 @@
             groupBoxIgnoredExtensionsFile.PerformLayout();
             tabPageJsonContent.ResumeLayout(false);
             tabPageJsonContent.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -340,5 +384,10 @@
         private Button buttonChooseOriginPath;
         private Label labelOriginPath;
         private TextBox textBoxOriginPath;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabelCreatedAt;
+        private ToolStripStatusLabel toolStripStatusLabelCreatedAtValue;
+        private ToolStripStatusLabel toolStripStatusLabelUpdatedAt;
+        private ToolStripStatusLabel toolStripStatusLabelUpdatedAtValue;
     }
 }

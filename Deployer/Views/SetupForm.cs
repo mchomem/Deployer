@@ -29,6 +29,10 @@ public partial class SetupForm : MdiChieldFormBase
             this.textBoxDestinationPath.Text = Setup.DestinationPath;
             this.listBoxIgnoredExtensionsFile.Items.AddRange(Setup.IgnoreExtensions.ToArray());
             this.listBoxIgnoredExactFileName.Items.AddRange(Setup.IgnoreExactFileName.ToArray());
+
+            this.toolStripStatusLabelCreatedAtValue.Text = Setup.CreatedAt.ToString("dd/MM/yyyy HH:mm:ss");
+            this.toolStripStatusLabelUpdatedAtValue.Text = Setup.UpdatedAt.ToString("dd/MM/yyyy HH:mm:ss");
+
             this.textBoxContentJsonFile.Text = JsonSerializer.Serialize(Setup, new JsonSerializerOptions { WriteIndented = true });
         }
         catch (Exception e)

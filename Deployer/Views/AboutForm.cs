@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Deployer.Views;
+﻿namespace Deployer.Views;
 
 public partial class AboutForm : MdiChieldFormBase
 {
@@ -13,7 +11,6 @@ public partial class AboutForm : MdiChieldFormBase
     {
         StringBuilder text = new StringBuilder();
         text.AppendLine("This tool is intended to assist in the deployment process of applications that are still distributed in the on promise format");
-        text.AppendLine();
         text.AppendLine();
         text.AppendLine("It is merely a facilitator for these operations");
         text.AppendLine();
