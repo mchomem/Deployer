@@ -26,5 +26,6 @@ internal static class Program
         services.AddTransient<MainForm>();
         services.AddTransient<SetupForm>();
         services.AddTransient<ProcessForm>();
+        services.AddTransient<AboutForm>();
     }
 }

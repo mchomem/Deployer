@@ -35,6 +35,11 @@ public partial class MainForm : Form
         OpenChildForm<ProcessForm>();
     }
 
+    private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        OpenChildForm<AboutForm>();
+    }
+
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
         Environment.Exit(0);
