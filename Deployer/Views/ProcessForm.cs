@@ -28,6 +28,7 @@ public partial class ProcessForm : MdiChieldFormBase
 
         Invoke(new Action(() => {
             this.buttonStartCopy.Enabled = true;
+            MessageBox.Show(this, "Files copied to destination.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }));
     }
 
