@@ -28,7 +28,6 @@ public partial class ProcessForm : MdiChieldFormBase
 
         Invoke(new Action(() => {
             this.buttonStartCopy.Enabled = true;
-            MessageBox.Show(this, "Files copied to destination.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }));
     }
 
@@ -44,6 +43,14 @@ public partial class ProcessForm : MdiChieldFormBase
         if (!Directory.Exists(deployerSetup.OriginPath))
         {
             MessageBox.Show("The origin path don't exits.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
+        var amoutFiles = Directory.GetFiles(deployerSetup.OriginPath);
+
+        if (amoutFiles.Length == 0)
+        {
+            MessageBox.Show($"The refered path {deployerSetup.OriginPath} is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
@@ -109,6 +116,7 @@ public partial class ProcessForm : MdiChieldFormBase
             labelStatus.Text = "Done";
             buttonStartCopy.Enabled = true;
             progressBarCopyFiles.Value = 0;
+            MessageBox.Show(this, "Files copied to destination.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }));
     }
 }
