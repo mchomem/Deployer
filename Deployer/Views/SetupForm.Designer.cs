@@ -69,10 +69,11 @@
             // 
             tabControl.Controls.Add(tabPageMaintenance);
             tabControl.Controls.Add(tabPageJsonContent);
-            tabControl.Location = new Point(12, 12);
+            tabControl.Location = new Point(10, 9);
+            tabControl.Margin = new Padding(3, 2, 3, 2);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(1010, 580);
+            tabControl.Size = new Size(884, 435);
             tabControl.TabIndex = 10;
             // 
             // tabPageMaintenance
@@ -88,10 +89,11 @@
             tabPageMaintenance.Controls.Add(buttonChooseOriginPath);
             tabPageMaintenance.Controls.Add(labelOriginPath);
             tabPageMaintenance.Controls.Add(textBoxOriginPath);
-            tabPageMaintenance.Location = new Point(4, 29);
+            tabPageMaintenance.Location = new Point(4, 24);
+            tabPageMaintenance.Margin = new Padding(3, 2, 3, 2);
             tabPageMaintenance.Name = "tabPageMaintenance";
-            tabPageMaintenance.Padding = new Padding(3);
-            tabPageMaintenance.Size = new Size(1002, 547);
+            tabPageMaintenance.Padding = new Padding(3, 2, 3, 2);
+            tabPageMaintenance.Size = new Size(876, 407);
             tabPageMaintenance.TabIndex = 0;
             tabPageMaintenance.Text = "Maintenance";
             tabPageMaintenance.UseVisualStyleBackColor = true;
@@ -102,47 +104,54 @@
             groupBoxIgnoredExactFileName.Controls.Add(buttonAddIgnoredExactFileName);
             groupBoxIgnoredExactFileName.Controls.Add(listBoxIgnoredExactFileName);
             groupBoxIgnoredExactFileName.Controls.Add(textBoxIgnoredExactFileName);
-            groupBoxIgnoredExactFileName.Location = new Point(357, 159);
+            groupBoxIgnoredExactFileName.Location = new Point(312, 119);
+            groupBoxIgnoredExactFileName.Margin = new Padding(3, 2, 3, 2);
             groupBoxIgnoredExactFileName.Name = "groupBoxIgnoredExactFileName";
-            groupBoxIgnoredExactFileName.Size = new Size(300, 369);
+            groupBoxIgnoredExactFileName.Padding = new Padding(3, 2, 3, 2);
+            groupBoxIgnoredExactFileName.Size = new Size(262, 277);
             groupBoxIgnoredExactFileName.TabIndex = 10;
             groupBoxIgnoredExactFileName.TabStop = false;
             groupBoxIgnoredExactFileName.Text = "Ignored Exact File Name";
             // 
             // buttonRemoveIgnoredExactFileName
             // 
-            buttonRemoveIgnoredExactFileName.Location = new Point(193, 129);
+            buttonRemoveIgnoredExactFileName.Image = Properties.Resources.delete;
+            buttonRemoveIgnoredExactFileName.Location = new Point(222, 97);
+            buttonRemoveIgnoredExactFileName.Margin = new Padding(3, 2, 3, 2);
             buttonRemoveIgnoredExactFileName.Name = "buttonRemoveIgnoredExactFileName";
-            buttonRemoveIgnoredExactFileName.Size = new Size(94, 29);
+            buttonRemoveIgnoredExactFileName.Size = new Size(30, 22);
             buttonRemoveIgnoredExactFileName.TabIndex = 3;
-            buttonRemoveIgnoredExactFileName.Text = "Remove";
             buttonRemoveIgnoredExactFileName.UseVisualStyleBackColor = true;
             buttonRemoveIgnoredExactFileName.Click += buttonRemoveIgnoredExactFileName_Click;
             // 
             // buttonAddIgnoredExactFileName
             // 
-            buttonAddIgnoredExactFileName.Location = new Point(193, 94);
+            buttonAddIgnoredExactFileName.Image = Properties.Resources.add;
+            buttonAddIgnoredExactFileName.Location = new Point(222, 70);
+            buttonAddIgnoredExactFileName.Margin = new Padding(3, 2, 3, 2);
             buttonAddIgnoredExactFileName.Name = "buttonAddIgnoredExactFileName";
-            buttonAddIgnoredExactFileName.Size = new Size(94, 29);
+            buttonAddIgnoredExactFileName.Size = new Size(30, 22);
             buttonAddIgnoredExactFileName.TabIndex = 2;
-            buttonAddIgnoredExactFileName.Text = "Add";
             buttonAddIgnoredExactFileName.UseVisualStyleBackColor = true;
             buttonAddIgnoredExactFileName.Click += buttonAddIgnoredExactFileName_Click;
             // 
             // listBoxIgnoredExactFileName
             // 
             listBoxIgnoredExactFileName.FormattingEnabled = true;
-            listBoxIgnoredExactFileName.Location = new Point(18, 94);
+            listBoxIgnoredExactFileName.ItemHeight = 15;
+            listBoxIgnoredExactFileName.Location = new Point(16, 70);
+            listBoxIgnoredExactFileName.Margin = new Padding(3, 2, 3, 2);
             listBoxIgnoredExactFileName.Name = "listBoxIgnoredExactFileName";
             listBoxIgnoredExactFileName.SelectionMode = SelectionMode.MultiSimple;
-            listBoxIgnoredExactFileName.Size = new Size(150, 244);
+            listBoxIgnoredExactFileName.Size = new Size(200, 184);
             listBoxIgnoredExactFileName.TabIndex = 1;
             // 
             // textBoxIgnoredExactFileName
             // 
-            textBoxIgnoredExactFileName.Location = new Point(18, 39);
+            textBoxIgnoredExactFileName.Location = new Point(16, 29);
+            textBoxIgnoredExactFileName.Margin = new Padding(3, 2, 3, 2);
             textBoxIgnoredExactFileName.Name = "textBoxIgnoredExactFileName";
-            textBoxIgnoredExactFileName.Size = new Size(269, 27);
+            textBoxIgnoredExactFileName.Size = new Size(236, 23);
             textBoxIgnoredExactFileName.TabIndex = 0;
             textBoxIgnoredExactFileName.KeyPress += textBoxIgnoredExactFileName_KeyPress;
             // 
@@ -152,55 +161,63 @@
             groupBoxIgnoredExtensionsFile.Controls.Add(buttonAddIgnoredExtensionsFile);
             groupBoxIgnoredExtensionsFile.Controls.Add(listBoxIgnoredExtensionsFile);
             groupBoxIgnoredExtensionsFile.Controls.Add(textBoxIgnoredExtensionsFile);
-            groupBoxIgnoredExtensionsFile.Location = new Point(6, 159);
+            groupBoxIgnoredExtensionsFile.Location = new Point(5, 119);
+            groupBoxIgnoredExtensionsFile.Margin = new Padding(3, 2, 3, 2);
             groupBoxIgnoredExtensionsFile.Name = "groupBoxIgnoredExtensionsFile";
-            groupBoxIgnoredExtensionsFile.Size = new Size(300, 369);
+            groupBoxIgnoredExtensionsFile.Padding = new Padding(3, 2, 3, 2);
+            groupBoxIgnoredExtensionsFile.Size = new Size(262, 277);
             groupBoxIgnoredExtensionsFile.TabIndex = 20;
             groupBoxIgnoredExtensionsFile.TabStop = false;
             groupBoxIgnoredExtensionsFile.Text = "Ignored Extensions File";
             // 
             // buttonRemoveIgnoredExtensionsFile
             // 
-            buttonRemoveIgnoredExtensionsFile.Location = new Point(193, 129);
+            buttonRemoveIgnoredExtensionsFile.Image = Properties.Resources.delete;
+            buttonRemoveIgnoredExtensionsFile.Location = new Point(221, 97);
+            buttonRemoveIgnoredExtensionsFile.Margin = new Padding(3, 2, 3, 2);
             buttonRemoveIgnoredExtensionsFile.Name = "buttonRemoveIgnoredExtensionsFile";
-            buttonRemoveIgnoredExtensionsFile.Size = new Size(94, 29);
+            buttonRemoveIgnoredExtensionsFile.Size = new Size(30, 22);
             buttonRemoveIgnoredExtensionsFile.TabIndex = 3;
-            buttonRemoveIgnoredExtensionsFile.Text = "Remove";
             buttonRemoveIgnoredExtensionsFile.UseVisualStyleBackColor = true;
             buttonRemoveIgnoredExtensionsFile.Click += buttonRemoveIgnoredExtensionsFile_Click;
             // 
             // buttonAddIgnoredExtensionsFile
             // 
-            buttonAddIgnoredExtensionsFile.Location = new Point(193, 94);
+            buttonAddIgnoredExtensionsFile.Image = Properties.Resources.add;
+            buttonAddIgnoredExtensionsFile.Location = new Point(221, 70);
+            buttonAddIgnoredExtensionsFile.Margin = new Padding(3, 2, 3, 2);
             buttonAddIgnoredExtensionsFile.Name = "buttonAddIgnoredExtensionsFile";
-            buttonAddIgnoredExtensionsFile.Size = new Size(94, 29);
+            buttonAddIgnoredExtensionsFile.Size = new Size(30, 22);
             buttonAddIgnoredExtensionsFile.TabIndex = 2;
-            buttonAddIgnoredExtensionsFile.Text = "Add";
             buttonAddIgnoredExtensionsFile.UseVisualStyleBackColor = true;
             buttonAddIgnoredExtensionsFile.Click += buttonAddIgnoredExtensionsFile_Click;
             // 
             // listBoxIgnoredExtensionsFile
             // 
             listBoxIgnoredExtensionsFile.FormattingEnabled = true;
-            listBoxIgnoredExtensionsFile.Location = new Point(18, 94);
+            listBoxIgnoredExtensionsFile.ItemHeight = 15;
+            listBoxIgnoredExtensionsFile.Location = new Point(16, 70);
+            listBoxIgnoredExtensionsFile.Margin = new Padding(3, 2, 3, 2);
             listBoxIgnoredExtensionsFile.Name = "listBoxIgnoredExtensionsFile";
             listBoxIgnoredExtensionsFile.SelectionMode = SelectionMode.MultiSimple;
-            listBoxIgnoredExtensionsFile.Size = new Size(150, 244);
+            listBoxIgnoredExtensionsFile.Size = new Size(199, 184);
             listBoxIgnoredExtensionsFile.TabIndex = 1;
             // 
             // textBoxIgnoredExtensionsFile
             // 
-            textBoxIgnoredExtensionsFile.Location = new Point(18, 39);
+            textBoxIgnoredExtensionsFile.Location = new Point(16, 29);
+            textBoxIgnoredExtensionsFile.Margin = new Padding(3, 2, 3, 2);
             textBoxIgnoredExtensionsFile.Name = "textBoxIgnoredExtensionsFile";
-            textBoxIgnoredExtensionsFile.Size = new Size(269, 27);
+            textBoxIgnoredExtensionsFile.Size = new Size(236, 23);
             textBoxIgnoredExtensionsFile.TabIndex = 0;
             textBoxIgnoredExtensionsFile.KeyPress += textBoxIgnoredExtensionsFile_KeyPress;
             // 
             // buttonClearValueDestinationPath
             // 
-            buttonClearValueDestinationPath.Location = new Point(894, 111);
+            buttonClearValueDestinationPath.Location = new Point(782, 83);
+            buttonClearValueDestinationPath.Margin = new Padding(3, 2, 3, 2);
             buttonClearValueDestinationPath.Name = "buttonClearValueDestinationPath";
-            buttonClearValueDestinationPath.Size = new Size(94, 29);
+            buttonClearValueDestinationPath.Size = new Size(82, 22);
             buttonClearValueDestinationPath.TabIndex = 19;
             buttonClearValueDestinationPath.Text = "Clear";
             buttonClearValueDestinationPath.UseVisualStyleBackColor = true;
@@ -208,9 +225,10 @@
             // 
             // buttonClearValueOriginPath
             // 
-            buttonClearValueOriginPath.Location = new Point(894, 41);
+            buttonClearValueOriginPath.Location = new Point(782, 31);
+            buttonClearValueOriginPath.Margin = new Padding(3, 2, 3, 2);
             buttonClearValueOriginPath.Name = "buttonClearValueOriginPath";
-            buttonClearValueOriginPath.Size = new Size(94, 29);
+            buttonClearValueOriginPath.Size = new Size(82, 22);
             buttonClearValueOriginPath.TabIndex = 18;
             buttonClearValueOriginPath.Text = "Clear";
             buttonClearValueOriginPath.UseVisualStyleBackColor = true;
@@ -218,9 +236,10 @@
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(894, 499);
+            buttonSave.Location = new Point(782, 374);
+            buttonSave.Margin = new Padding(3, 2, 3, 2);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(94, 29);
+            buttonSave.Size = new Size(82, 22);
             buttonSave.TabIndex = 17;
             buttonSave.Text = "Save";
             buttonSave.UseVisualStyleBackColor = true;
@@ -228,9 +247,10 @@
             // 
             // buttonChooseDestinationPath
             // 
-            buttonChooseDestinationPath.Location = new Point(859, 110);
+            buttonChooseDestinationPath.Location = new Point(752, 82);
+            buttonChooseDestinationPath.Margin = new Padding(3, 2, 3, 2);
             buttonChooseDestinationPath.Name = "buttonChooseDestinationPath";
-            buttonChooseDestinationPath.Size = new Size(29, 29);
+            buttonChooseDestinationPath.Size = new Size(25, 22);
             buttonChooseDestinationPath.TabIndex = 16;
             buttonChooseDestinationPath.Text = "...";
             buttonChooseDestinationPath.UseVisualStyleBackColor = true;
@@ -238,26 +258,28 @@
             // 
             // textBoxDestinationPath
             // 
-            textBoxDestinationPath.Location = new Point(6, 111);
+            textBoxDestinationPath.Location = new Point(5, 83);
+            textBoxDestinationPath.Margin = new Padding(3, 2, 3, 2);
             textBoxDestinationPath.Name = "textBoxDestinationPath";
             textBoxDestinationPath.ReadOnly = true;
-            textBoxDestinationPath.Size = new Size(847, 27);
+            textBoxDestinationPath.Size = new Size(742, 23);
             textBoxDestinationPath.TabIndex = 15;
             // 
             // labelDestinationPath
             // 
             labelDestinationPath.AutoSize = true;
-            labelDestinationPath.Location = new Point(6, 88);
+            labelDestinationPath.Location = new Point(5, 66);
             labelDestinationPath.Name = "labelDestinationPath";
-            labelDestinationPath.Size = new Size(120, 20);
+            labelDestinationPath.Size = new Size(97, 15);
             labelDestinationPath.TabIndex = 14;
             labelDestinationPath.Text = "Destination Path:";
             // 
             // buttonChooseOriginPath
             // 
-            buttonChooseOriginPath.Location = new Point(859, 42);
+            buttonChooseOriginPath.Location = new Point(752, 32);
+            buttonChooseOriginPath.Margin = new Padding(3, 2, 3, 2);
             buttonChooseOriginPath.Name = "buttonChooseOriginPath";
-            buttonChooseOriginPath.Size = new Size(29, 29);
+            buttonChooseOriginPath.Size = new Size(25, 22);
             buttonChooseOriginPath.TabIndex = 13;
             buttonChooseOriginPath.Text = "...";
             buttonChooseOriginPath.UseVisualStyleBackColor = true;
@@ -266,81 +288,86 @@
             // labelOriginPath
             // 
             labelOriginPath.AutoSize = true;
-            labelOriginPath.Location = new Point(6, 12);
+            labelOriginPath.Location = new Point(5, 9);
             labelOriginPath.Name = "labelOriginPath";
-            labelOriginPath.Size = new Size(85, 20);
+            labelOriginPath.Size = new Size(70, 15);
             labelOriginPath.TabIndex = 12;
             labelOriginPath.Text = "Origin Path:";
             // 
             // textBoxOriginPath
             // 
-            textBoxOriginPath.Location = new Point(6, 43);
+            textBoxOriginPath.Location = new Point(5, 32);
+            textBoxOriginPath.Margin = new Padding(3, 2, 3, 2);
             textBoxOriginPath.Name = "textBoxOriginPath";
             textBoxOriginPath.ReadOnly = true;
-            textBoxOriginPath.Size = new Size(847, 27);
+            textBoxOriginPath.Size = new Size(742, 23);
             textBoxOriginPath.TabIndex = 11;
             // 
             // tabPageJsonContent
             // 
             tabPageJsonContent.Controls.Add(textBoxContentJsonFile);
-            tabPageJsonContent.Location = new Point(4, 29);
+            tabPageJsonContent.Location = new Point(4, 24);
+            tabPageJsonContent.Margin = new Padding(3, 2, 3, 2);
             tabPageJsonContent.Name = "tabPageJsonContent";
-            tabPageJsonContent.Padding = new Padding(3);
-            tabPageJsonContent.Size = new Size(1002, 547);
+            tabPageJsonContent.Padding = new Padding(3, 2, 3, 2);
+            tabPageJsonContent.Size = new Size(876, 407);
             tabPageJsonContent.TabIndex = 1;
             tabPageJsonContent.Text = "Json Content";
             tabPageJsonContent.UseVisualStyleBackColor = true;
             // 
             // textBoxContentJsonFile
             // 
-            textBoxContentJsonFile.Location = new Point(6, 6);
+            textBoxContentJsonFile.Location = new Point(5, 4);
+            textBoxContentJsonFile.Margin = new Padding(3, 2, 3, 2);
             textBoxContentJsonFile.Multiline = true;
             textBoxContentJsonFile.Name = "textBoxContentJsonFile";
             textBoxContentJsonFile.ReadOnly = true;
-            textBoxContentJsonFile.Size = new Size(990, 535);
+            textBoxContentJsonFile.Size = new Size(867, 402);
             textBoxContentJsonFile.TabIndex = 0;
             // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelCreatedAt, toolStripStatusLabelCreatedAtValue, toolStripStatusLabelUpdatedAt, toolStripStatusLabelUpdatedAtValue });
-            statusStrip1.Location = new Point(0, 604);
+            statusStrip1.Location = new Point(0, 450);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1036, 26);
+            statusStrip1.Padding = new Padding(1, 0, 12, 0);
+            statusStrip1.Size = new Size(906, 22);
             statusStrip1.TabIndex = 11;
             statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabelCreatedAt
             // 
             toolStripStatusLabelCreatedAt.Name = "toolStripStatusLabelCreatedAt";
-            toolStripStatusLabelCreatedAt.Size = new Size(81, 20);
+            toolStripStatusLabelCreatedAt.Size = new Size(64, 17);
             toolStripStatusLabelCreatedAt.Text = "Created at:";
             // 
             // toolStripStatusLabelCreatedAtValue
             // 
             toolStripStatusLabelCreatedAtValue.Name = "toolStripStatusLabelCreatedAtValue";
-            toolStripStatusLabelCreatedAtValue.Size = new Size(143, 20);
+            toolStripStatusLabelCreatedAtValue.Size = new Size(110, 17);
             toolStripStatusLabelCreatedAtValue.Text = "00/00/0000 00:00:00";
             // 
             // toolStripStatusLabelUpdatedAt
             // 
             toolStripStatusLabelUpdatedAt.Name = "toolStripStatusLabelUpdatedAt";
-            toolStripStatusLabelUpdatedAt.Size = new Size(87, 20);
+            toolStripStatusLabelUpdatedAt.Size = new Size(68, 17);
             toolStripStatusLabelUpdatedAt.Text = "Updated at:";
             // 
             // toolStripStatusLabelUpdatedAtValue
             // 
             toolStripStatusLabelUpdatedAtValue.Name = "toolStripStatusLabelUpdatedAtValue";
-            toolStripStatusLabelUpdatedAtValue.Size = new Size(143, 20);
+            toolStripStatusLabelUpdatedAtValue.Size = new Size(110, 17);
             toolStripStatusLabelUpdatedAtValue.Text = "00/00/0000 00:00:00";
             // 
             // SetupForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1036, 630);
+            ClientSize = new Size(906, 472);
             Controls.Add(statusStrip1);
             Controls.Add(tabControl);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "SetupForm";
             Text = "Deployer - Setup";
             Load += SetupForm_Load;
