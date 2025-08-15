@@ -20,6 +20,11 @@ public partial class ProcessForm : MdiChieldFormBase
 
     private async void buttonStartCopy_Click(object sender, EventArgs e)
     {
+        var result = MessageBox.Show(this, "Are you sure you want to proceed?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if(result == DialogResult.No || result == DialogResult.Cancel)
+            return;
+
         Invoke(new Action(() => {
             this.buttonStartCopy.Enabled = false;
         }));
