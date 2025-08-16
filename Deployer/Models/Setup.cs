@@ -1,11 +1,11 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Deployer.Models;
+﻿namespace Deployer.Models;
 
 public class Setup
 {
-    public Setup(string originPath, string destinationPath, List<string> ignoreExtensions, List<string> ignoreExactFileName)
+    public Setup(string code, string description, string originPath, string destinationPath, List<string> ignoreExtensions, List<string> ignoreExactFileName)
     {
+        Code = code;
+        Description = description;
         OriginPath = originPath;
         DestinationPath = destinationPath;
         IgnoreExtensions = ignoreExtensions;
@@ -14,8 +14,10 @@ public class Setup
     }
 
     [JsonConstructor]
-    public Setup(string originPath, string destinationPath, List<string> ignoreExtensions, List<string> ignoreExactFileName, DateTime createdAt, DateTime updatedAt)
+    public Setup(string code, string description, string originPath, string destinationPath, List<string> ignoreExtensions, List<string> ignoreExactFileName, DateTime createdAt, DateTime updatedAt)
     {
+        Code = code;
+        Description = description;
         OriginPath = originPath;
         DestinationPath = destinationPath;
         IgnoreExtensions = ignoreExtensions;
@@ -24,8 +26,9 @@ public class Setup
         UpdatedAt = updatedAt;
     }
 
-    public void Update(string originPath, string destinationPath, List<string> ignoreExtensions, List<string> ignoreExactFileName)
+    public void Update(string description, string originPath, string destinationPath, List<string> ignoreExtensions, List<string> ignoreExactFileName)
     {
+        Description = description;
         OriginPath = originPath;
         DestinationPath = destinationPath;
         IgnoreExtensions = ignoreExtensions;
@@ -33,6 +36,8 @@ public class Setup
         UpdatedAt = DateTime.Now;
     }
 
+    public string Code  { get; private set; }
+    public string Description { get; private set; }
     public string OriginPath { get; private set; }
     public string DestinationPath { get; private set; }
     public List<string> IgnoreExtensions { get; private set; }

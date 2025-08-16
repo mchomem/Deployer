@@ -37,16 +37,17 @@
             labelDestinationPathValue = new Label();
             labelStatusValue = new Label();
             dataGridViewLog = new DataGridView();
-            ExceptionMessage = new DataGridViewTextBoxColumn();
-            FileName = new DataGridViewTextBoxColumn();
+            Log = new DataGridViewTextBoxColumn();
+            CopiedAt = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLog).BeginInit();
             SuspendLayout();
             // 
             // buttonStartCopy
             // 
-            buttonStartCopy.Location = new Point(694, 92);
+            buttonStartCopy.Location = new Point(607, 69);
+            buttonStartCopy.Margin = new Padding(3, 2, 3, 2);
             buttonStartCopy.Name = "buttonStartCopy";
-            buttonStartCopy.Size = new Size(94, 29);
+            buttonStartCopy.Size = new Size(82, 22);
             buttonStartCopy.TabIndex = 0;
             buttonStartCopy.Text = "Start Copy";
             buttonStartCopy.UseVisualStyleBackColor = true;
@@ -54,95 +55,100 @@
             // 
             // progressBarCopyFiles
             // 
-            progressBarCopyFiles.Location = new Point(12, 57);
+            progressBarCopyFiles.Location = new Point(10, 43);
+            progressBarCopyFiles.Margin = new Padding(3, 2, 3, 2);
             progressBarCopyFiles.Name = "progressBarCopyFiles";
-            progressBarCopyFiles.Size = new Size(776, 29);
+            progressBarCopyFiles.Size = new Size(679, 22);
             progressBarCopyFiles.TabIndex = 1;
             // 
             // labelStatus
             // 
             labelStatus.AutoSize = true;
-            labelStatus.Location = new Point(12, 23);
+            labelStatus.Location = new Point(10, 17);
             labelStatus.Name = "labelStatus";
-            labelStatus.Size = new Size(52, 20);
+            labelStatus.Size = new Size(42, 15);
             labelStatus.TabIndex = 2;
             labelStatus.Text = "Status:";
             // 
             // labelOriginPath
             // 
             labelOriginPath.AutoSize = true;
-            labelOriginPath.Location = new Point(12, 153);
+            labelOriginPath.Location = new Point(10, 115);
             labelOriginPath.Name = "labelOriginPath";
-            labelOriginPath.Size = new Size(53, 20);
+            labelOriginPath.Size = new Size(43, 15);
             labelOriginPath.TabIndex = 3;
             labelOriginPath.Text = "Origin:";
             // 
             // labelDestinationPath
             // 
             labelDestinationPath.AutoSize = true;
-            labelDestinationPath.Location = new Point(12, 194);
+            labelDestinationPath.Location = new Point(10, 146);
             labelDestinationPath.Name = "labelDestinationPath";
-            labelDestinationPath.Size = new Size(88, 20);
+            labelDestinationPath.Size = new Size(70, 15);
             labelDestinationPath.TabIndex = 4;
             labelDestinationPath.Text = "Destination:";
             // 
             // labelOriginPathValue
             // 
             labelOriginPathValue.AutoSize = true;
-            labelOriginPathValue.Location = new Point(120, 153);
+            labelOriginPathValue.Location = new Point(105, 115);
             labelOriginPathValue.Name = "labelOriginPathValue";
-            labelOriginPathValue.Size = new Size(92, 20);
+            labelOriginPathValue.Size = new Size(73, 15);
             labelOriginPathValue.TabIndex = 5;
             labelOriginPathValue.Text = "{origin path}";
             // 
             // labelDestinationPathValue
             // 
             labelDestinationPathValue.AutoSize = true;
-            labelDestinationPathValue.Location = new Point(120, 194);
+            labelDestinationPathValue.Location = new Point(105, 146);
             labelDestinationPathValue.Name = "labelDestinationPathValue";
-            labelDestinationPathValue.Size = new Size(127, 20);
+            labelDestinationPathValue.Size = new Size(101, 15);
             labelDestinationPathValue.TabIndex = 6;
             labelDestinationPathValue.Text = "{destination path}";
             // 
             // labelStatusValue
             // 
             labelStatusValue.AutoSize = true;
-            labelStatusValue.Location = new Point(120, 23);
+            labelStatusValue.Location = new Point(105, 17);
             labelStatusValue.Name = "labelStatusValue";
-            labelStatusValue.Size = new Size(57, 20);
+            labelStatusValue.Size = new Size(46, 15);
             labelStatusValue.TabIndex = 7;
             labelStatusValue.Text = "{status}";
             // 
             // dataGridViewLog
             // 
+            dataGridViewLog.AllowUserToAddRows = false;
+            dataGridViewLog.AllowUserToDeleteRows = false;
+            dataGridViewLog.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewLog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewLog.Columns.AddRange(new DataGridViewColumn[] { ExceptionMessage, FileName });
-            dataGridViewLog.Location = new Point(12, 250);
+            dataGridViewLog.Columns.AddRange(new DataGridViewColumn[] { Log, CopiedAt });
+            dataGridViewLog.Location = new Point(10, 188);
+            dataGridViewLog.Margin = new Padding(3, 2, 3, 2);
             dataGridViewLog.Name = "dataGridViewLog";
             dataGridViewLog.RowHeadersVisible = false;
             dataGridViewLog.RowHeadersWidth = 51;
-            dataGridViewLog.Size = new Size(776, 188);
+            dataGridViewLog.Size = new Size(679, 141);
             dataGridViewLog.TabIndex = 8;
             // 
-            // ExceptionMessage
+            // Log
             // 
-            ExceptionMessage.HeaderText = "Exception Message";
-            ExceptionMessage.MinimumWidth = 6;
-            ExceptionMessage.Name = "ExceptionMessage";
-            ExceptionMessage.Width = 500;
+            Log.HeaderText = "Log";
+            Log.MinimumWidth = 6;
+            Log.Name = "Log";
+            Log.Width = 500;
             // 
-            // FileName
+            // CopiedAt
             // 
-            FileName.HeaderText = "File Name";
-            FileName.MinimumWidth = 6;
-            FileName.Name = "FileName";
-            FileName.Width = 300;
+            CopiedAt.HeaderText = "Copied at";
+            CopiedAt.MinimumWidth = 6;
+            CopiedAt.Name = "CopiedAt";
+            CopiedAt.Width = 180;
             // 
             // ProcessForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(dataGridViewLog);
             Controls.Add(labelStatusValue);
             Controls.Add(labelDestinationPathValue);
@@ -152,6 +158,7 @@
             Controls.Add(labelStatus);
             Controls.Add(progressBarCopyFiles);
             Controls.Add(buttonStartCopy);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ProcessForm";
             Text = "Process";
             VisibleChanged += ProcessForm_VisibleChanged;
@@ -171,7 +178,7 @@
         private Label labelDestinationPathValue;
         private Label labelStatusValue;
         private DataGridView dataGridViewLog;
-        private DataGridViewTextBoxColumn ExceptionMessage;
-        private DataGridViewTextBoxColumn FileName;
+        private DataGridViewTextBoxColumn Log;
+        private DataGridViewTextBoxColumn CopiedAt;
     }
 }

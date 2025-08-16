@@ -16,15 +16,18 @@ public partial class SetupForm : MdiChieldFormBase
         await LoadJson();
     }
 
-    private async Task LoadJson()
+    public async Task LoadJson()
     {
         try
         {
-            Setup = await _jsonRepository.Read();
+            Setup = await _jsonRepository.GetAsync(TransferData.Code);
             
             if (Setup is null)
                 return;
 
+            this.textBoxCode.Enabled = false;
+            this.textBoxCode.Text = Setup.Code;
+            this.textBoxDescription.Text = Setup.Description;
             this.textBoxOriginPath.Text = Setup.OriginPath;
             this.textBoxDestinationPath.Text = Setup.DestinationPath;
             this.listBoxIgnoredExtensionsFile.Items.AddRange(Setup.IgnoreExtensions.ToArray());
@@ -166,6 +169,8 @@ public partial class SetupForm : MdiChieldFormBase
         {
             this.Invoke((Action)(() =>
             {
+                this.textBoxCode.Text = string.Empty;
+                this.textBoxDescription.Text = string.Empty;
                 this.textBoxOriginPath.Text = string.Empty;
                 this.textBoxDestinationPath.Text = string.Empty;
                 this.listBoxIgnoredExtensionsFile.Items.Clear();
@@ -176,6 +181,8 @@ public partial class SetupForm : MdiChieldFormBase
 
     private async Task Save()
     {
+        var code = this.textBoxCode.Text.Trim();
+        var description = this.textBoxDescription.Text.Trim();
         var originPath = this.textBoxOriginPath.Text;
         var destinationPath = this.textBoxDestinationPath.Text;
         var ignoredExtensions = new List<string>();
@@ -192,15 +199,16 @@ public partial class SetupForm : MdiChieldFormBase
 
         if (Setup is null)
         {
-            setup = new Setup(originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+            setup = new Setup(code, description, originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+            await _jsonRepository.CreateAsync(setup);
         }
         else
         {
             setup = Setup;
-            setup.Update(originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+            setup.Update(description, originPath, destinationPath, ignoredExtensions, ignoredExactFileName);
+            
+            await _jsonRepository.UpdateAsync(setup.Code, setup);
         }
-
-        await _jsonRepository.Write(setup);
 
         MessageBox.Show(this, $"Setup saved.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
         this.tabControl.SelectedIndex = 1;

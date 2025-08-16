@@ -2,7 +2,9 @@
 
 public interface IJsonRepositoryBase<TEntity> where TEntity : class
 {
-    Task<TEntity> Read();
-    Task Write(TEntity entity);
-    Task<bool> CheckIfExists();
+    Task<IEnumerable<TEntity>> GetAllAsync();
+    Task<TEntity> GetAsync(string code);
+    Task<TEntity> CreateAsync(TEntity entity);
+    Task<TEntity> UpdateAsync(string code, TEntity updatedEntity);
+    Task<bool> CheckIfExistsAnyAsync();
 }

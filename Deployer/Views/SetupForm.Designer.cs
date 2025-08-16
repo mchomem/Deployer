@@ -31,6 +31,10 @@
             folderBrowserDialog = new FolderBrowserDialog();
             tabControl = new TabControl();
             tabPageMaintenance = new TabPage();
+            textBoxDescription = new TextBox();
+            labelDescription = new Label();
+            textBoxCode = new TextBox();
+            labelCode = new Label();
             groupBoxIgnoredExactFileName = new GroupBox();
             buttonRemoveIgnoredExactFileName = new Button();
             buttonAddIgnoredExactFileName = new Button();
@@ -73,11 +77,15 @@
             tabControl.Margin = new Padding(3, 2, 3, 2);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(884, 435);
+            tabControl.Size = new Size(884, 524);
             tabControl.TabIndex = 10;
             // 
             // tabPageMaintenance
             // 
+            tabPageMaintenance.Controls.Add(textBoxDescription);
+            tabPageMaintenance.Controls.Add(labelDescription);
+            tabPageMaintenance.Controls.Add(textBoxCode);
+            tabPageMaintenance.Controls.Add(labelCode);
             tabPageMaintenance.Controls.Add(groupBoxIgnoredExactFileName);
             tabPageMaintenance.Controls.Add(groupBoxIgnoredExtensionsFile);
             tabPageMaintenance.Controls.Add(buttonClearValueDestinationPath);
@@ -93,10 +101,42 @@
             tabPageMaintenance.Margin = new Padding(3, 2, 3, 2);
             tabPageMaintenance.Name = "tabPageMaintenance";
             tabPageMaintenance.Padding = new Padding(3, 2, 3, 2);
-            tabPageMaintenance.Size = new Size(876, 407);
+            tabPageMaintenance.Size = new Size(876, 496);
             tabPageMaintenance.TabIndex = 0;
             tabPageMaintenance.Text = "Maintenance";
             tabPageMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDescription
+            // 
+            textBoxDescription.Location = new Point(256, 38);
+            textBoxDescription.Name = "textBoxDescription";
+            textBoxDescription.Size = new Size(491, 23);
+            textBoxDescription.TabIndex = 24;
+            // 
+            // labelDescription
+            // 
+            labelDescription.AutoSize = true;
+            labelDescription.Location = new Point(256, 20);
+            labelDescription.Name = "labelDescription";
+            labelDescription.Size = new Size(70, 15);
+            labelDescription.TabIndex = 23;
+            labelDescription.Text = "Description:";
+            // 
+            // textBoxCode
+            // 
+            textBoxCode.Location = new Point(6, 38);
+            textBoxCode.Name = "textBoxCode";
+            textBoxCode.Size = new Size(214, 23);
+            textBoxCode.TabIndex = 22;
+            // 
+            // labelCode
+            // 
+            labelCode.AutoSize = true;
+            labelCode.Location = new Point(6, 20);
+            labelCode.Name = "labelCode";
+            labelCode.Size = new Size(38, 15);
+            labelCode.TabIndex = 21;
+            labelCode.Text = "Code:";
             // 
             // groupBoxIgnoredExactFileName
             // 
@@ -104,7 +144,7 @@
             groupBoxIgnoredExactFileName.Controls.Add(buttonAddIgnoredExactFileName);
             groupBoxIgnoredExactFileName.Controls.Add(listBoxIgnoredExactFileName);
             groupBoxIgnoredExactFileName.Controls.Add(textBoxIgnoredExactFileName);
-            groupBoxIgnoredExactFileName.Location = new Point(312, 119);
+            groupBoxIgnoredExactFileName.Location = new Point(312, 189);
             groupBoxIgnoredExactFileName.Margin = new Padding(3, 2, 3, 2);
             groupBoxIgnoredExactFileName.Name = "groupBoxIgnoredExactFileName";
             groupBoxIgnoredExactFileName.Padding = new Padding(3, 2, 3, 2);
@@ -161,7 +201,7 @@
             groupBoxIgnoredExtensionsFile.Controls.Add(buttonAddIgnoredExtensionsFile);
             groupBoxIgnoredExtensionsFile.Controls.Add(listBoxIgnoredExtensionsFile);
             groupBoxIgnoredExtensionsFile.Controls.Add(textBoxIgnoredExtensionsFile);
-            groupBoxIgnoredExtensionsFile.Location = new Point(5, 119);
+            groupBoxIgnoredExtensionsFile.Location = new Point(5, 189);
             groupBoxIgnoredExtensionsFile.Margin = new Padding(3, 2, 3, 2);
             groupBoxIgnoredExtensionsFile.Name = "groupBoxIgnoredExtensionsFile";
             groupBoxIgnoredExtensionsFile.Padding = new Padding(3, 2, 3, 2);
@@ -214,7 +254,7 @@
             // 
             // buttonClearValueDestinationPath
             // 
-            buttonClearValueDestinationPath.Location = new Point(782, 83);
+            buttonClearValueDestinationPath.Location = new Point(782, 146);
             buttonClearValueDestinationPath.Margin = new Padding(3, 2, 3, 2);
             buttonClearValueDestinationPath.Name = "buttonClearValueDestinationPath";
             buttonClearValueDestinationPath.Size = new Size(82, 22);
@@ -225,7 +265,7 @@
             // 
             // buttonClearValueOriginPath
             // 
-            buttonClearValueOriginPath.Location = new Point(782, 31);
+            buttonClearValueOriginPath.Location = new Point(782, 94);
             buttonClearValueOriginPath.Margin = new Padding(3, 2, 3, 2);
             buttonClearValueOriginPath.Name = "buttonClearValueOriginPath";
             buttonClearValueOriginPath.Size = new Size(82, 22);
@@ -236,7 +276,7 @@
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(782, 374);
+            buttonSave.Location = new Point(782, 444);
             buttonSave.Margin = new Padding(3, 2, 3, 2);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(82, 22);
@@ -247,7 +287,7 @@
             // 
             // buttonChooseDestinationPath
             // 
-            buttonChooseDestinationPath.Location = new Point(752, 82);
+            buttonChooseDestinationPath.Location = new Point(752, 146);
             buttonChooseDestinationPath.Margin = new Padding(3, 2, 3, 2);
             buttonChooseDestinationPath.Name = "buttonChooseDestinationPath";
             buttonChooseDestinationPath.Size = new Size(25, 22);
@@ -258,7 +298,7 @@
             // 
             // textBoxDestinationPath
             // 
-            textBoxDestinationPath.Location = new Point(5, 83);
+            textBoxDestinationPath.Location = new Point(5, 147);
             textBoxDestinationPath.Margin = new Padding(3, 2, 3, 2);
             textBoxDestinationPath.Name = "textBoxDestinationPath";
             textBoxDestinationPath.ReadOnly = true;
@@ -268,7 +308,7 @@
             // labelDestinationPath
             // 
             labelDestinationPath.AutoSize = true;
-            labelDestinationPath.Location = new Point(5, 66);
+            labelDestinationPath.Location = new Point(5, 130);
             labelDestinationPath.Name = "labelDestinationPath";
             labelDestinationPath.Size = new Size(97, 15);
             labelDestinationPath.TabIndex = 14;
@@ -276,7 +316,7 @@
             // 
             // buttonChooseOriginPath
             // 
-            buttonChooseOriginPath.Location = new Point(752, 32);
+            buttonChooseOriginPath.Location = new Point(752, 94);
             buttonChooseOriginPath.Margin = new Padding(3, 2, 3, 2);
             buttonChooseOriginPath.Name = "buttonChooseOriginPath";
             buttonChooseOriginPath.Size = new Size(25, 22);
@@ -288,7 +328,7 @@
             // labelOriginPath
             // 
             labelOriginPath.AutoSize = true;
-            labelOriginPath.Location = new Point(5, 9);
+            labelOriginPath.Location = new Point(5, 71);
             labelOriginPath.Name = "labelOriginPath";
             labelOriginPath.Size = new Size(70, 15);
             labelOriginPath.TabIndex = 12;
@@ -296,7 +336,7 @@
             // 
             // textBoxOriginPath
             // 
-            textBoxOriginPath.Location = new Point(5, 32);
+            textBoxOriginPath.Location = new Point(5, 94);
             textBoxOriginPath.Margin = new Padding(3, 2, 3, 2);
             textBoxOriginPath.Name = "textBoxOriginPath";
             textBoxOriginPath.ReadOnly = true;
@@ -310,7 +350,7 @@
             tabPageJsonContent.Margin = new Padding(3, 2, 3, 2);
             tabPageJsonContent.Name = "tabPageJsonContent";
             tabPageJsonContent.Padding = new Padding(3, 2, 3, 2);
-            tabPageJsonContent.Size = new Size(876, 407);
+            tabPageJsonContent.Size = new Size(876, 496);
             tabPageJsonContent.TabIndex = 1;
             tabPageJsonContent.Text = "Json Content";
             tabPageJsonContent.UseVisualStyleBackColor = true;
@@ -329,7 +369,7 @@
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelCreatedAt, toolStripStatusLabelCreatedAtValue, toolStripStatusLabelUpdatedAt, toolStripStatusLabelUpdatedAtValue });
-            statusStrip1.Location = new Point(0, 450);
+            statusStrip1.Location = new Point(0, 535);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 12, 0);
             statusStrip1.Size = new Size(906, 22);
@@ -364,7 +404,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(906, 472);
+            ClientSize = new Size(906, 557);
             Controls.Add(statusStrip1);
             Controls.Add(tabControl);
             Margin = new Padding(3, 2, 3, 2);
@@ -416,5 +456,9 @@
         private ToolStripStatusLabel toolStripStatusLabelCreatedAtValue;
         private ToolStripStatusLabel toolStripStatusLabelUpdatedAt;
         private ToolStripStatusLabel toolStripStatusLabelUpdatedAtValue;
+        private Label labelCode;
+        private TextBox textBoxCode;
+        private Label labelDescription;
+        private TextBox textBoxDescription;
     }
 }

@@ -12,7 +12,7 @@ public partial class MainForm : Form
         _jsonRepository = jsonRepository;
     }
 
-    private void OpenChildForm<T>() where T : Form
+    public void OpenChildForm<T>() where T : Form
     {
         var existingForm = MdiChildren.OfType<T>().FirstOrDefault();
 
@@ -29,27 +29,7 @@ public partial class MainForm : Form
 
     private void setupToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        OpenChildForm<SetupForm>();
-    }
-
-    private async void processToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        var exists = await _jsonRepository.CheckIfExists();
-
-        if (!exists)
-        {
-            MessageBox.Show(this, "The setup don't exists.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            var result = MessageBox.Show(this, "Do you want to access the Setup form to create the configuration?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if(result == DialogResult.Yes)
-            {
-                OpenChildForm<SetupForm>();
-            }
-            return;
-        }
-
-        OpenChildForm<ProcessForm>();
+        OpenChildForm<SetupListForm>();
     }
 
     private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

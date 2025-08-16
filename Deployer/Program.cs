@@ -25,6 +25,7 @@ internal static class Program
         services.AddScoped(typeof(IJsonRepositoryBase<>), typeof(JsonRepositoryBase<>));
         services.AddTransient<MainForm>();
         services.AddTransient<SetupForm>();
+        services.AddTransient<SetupListForm>();
         services.AddTransient<ProcessForm>();
         services.AddTransient<AboutForm>();
     }

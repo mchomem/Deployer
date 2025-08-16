@@ -38,7 +38,7 @@ public partial class ProcessForm : MdiChieldFormBase
 
     private async Task LoadJson()
     {
-        deployerSetup = await _jsonRepository.Read();
+        deployerSetup = await _jsonRepository.GetAsync(TransferData.Code);
         this.labelOriginPathValue.Text = deployerSetup.OriginPath;
         this.labelDestinationPathValue.Text = deployerSetup.DestinationPath;
     }
@@ -59,6 +59,10 @@ public partial class ProcessForm : MdiChieldFormBase
             return;
         }
 
+        Invoke(new Action(() => { 
+            this.dataGridViewLog.Rows.Clear();
+        }));
+
         var files = Directory.GetFiles(deployerSetup.OriginPath, "*", SearchOption.AllDirectories);
 
         Invoke(new Action(() =>
@@ -77,7 +81,6 @@ public partial class ProcessForm : MdiChieldFormBase
             {
                 string sourceFile = files[i];
                 string fileName = Path.GetRelativePath(deployerSetup.OriginPath, sourceFile);
-
                 string extension = fileName.Split('.').Last();
 
                 // Ignora as extenções.
@@ -99,11 +102,15 @@ public partial class ProcessForm : MdiChieldFormBase
                 {
                     // Copia o arquivo
                     File.Copy(sourceFile, destinationFile, true);
+                    
+                    Invoke(new Action(() => {
+                        this.dataGridViewLog.Rows.Add($"File {fileName} copied.", DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss"));
+                    }));
                 }
                 catch (Exception e)
                 {
                     Invoke(new Action(() => { 
-                        this.dataGridViewLog.Rows.Add(e.Message, fileName);
+                        this.dataGridViewLog.Rows.Add(e.Message, DateTime.Now.ToString("dd/mm/yyyy HH:mm:ss"));
                     }));
                 }
 

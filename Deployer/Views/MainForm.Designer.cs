@@ -28,31 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            menuStrip = new MenuStrip();
             setToolStripMenuItem = new ToolStripMenuItem();
             setupToolStripMenuItem = new ToolStripMenuItem();
-            processToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem1 = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            menuStrip.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { setToolStripMenuItem, aboutToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(700, 24);
-            menuStrip1.TabIndex = 3;
-            menuStrip1.Text = "menuStrip1";
+            menuStrip.ImageScalingSize = new Size(20, 20);
+            menuStrip.Items.AddRange(new ToolStripItem[] { setToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip.Location = new Point(0, 0);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Padding = new Padding(5, 2, 0, 2);
+            menuStrip.Size = new Size(700, 24);
+            menuStrip.TabIndex = 3;
+            menuStrip.Text = "menuStrip1";
             // 
             // setToolStripMenuItem
             // 
-            setToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { setupToolStripMenuItem, processToolStripMenuItem, toolStripMenuItem1, exitToolStripMenuItem });
+            setToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { setupToolStripMenuItem, toolStripMenuItem1, exitToolStripMenuItem });
             setToolStripMenuItem.Name = "setToolStripMenuItem";
             setToolStripMenuItem.Size = new Size(46, 20);
             setToolStripMenuItem.Text = "Main";
@@ -64,14 +63,6 @@
             setupToolStripMenuItem.Size = new Size(184, 26);
             setupToolStripMenuItem.Text = "Setup";
             setupToolStripMenuItem.Click += setupToolStripMenuItem_Click;
-            // 
-            // processToolStripMenuItem
-            // 
-            processToolStripMenuItem.Image = Properties.Resources.application_osx_terminal;
-            processToolStripMenuItem.Name = "processToolStripMenuItem";
-            processToolStripMenuItem.Size = new Size(184, 26);
-            processToolStripMenuItem.Text = "Process";
-            processToolStripMenuItem.Click += processToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -106,26 +97,25 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
-            Controls.Add(menuStrip1);
+            Controls.Add(menuStrip);
             IsMdiContainer = true;
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = menuStrip;
             Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             Text = "Deployer";
             WindowState = FormWindowState.Maximized;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private MenuStrip menuStrip1;
+        private MenuStrip menuStrip;
         private ToolStripMenuItem setToolStripMenuItem;
         private ToolStripMenuItem setupToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem1;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem processToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem1;
     }
